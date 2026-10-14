@@ -54,7 +54,7 @@ public class Level_12_Data_Table {
 
         @AfterClass
         public void afterClass(){
-//        driver.quit();
+        driver.quit();
         }
     }
 
