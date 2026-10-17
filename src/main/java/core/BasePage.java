@@ -111,14 +111,21 @@ public class BasePage {
         }
     }
     public void sendkeyToElement(WebDriver driver, String locator, String keyTosend){
+        getElement(driver, locator).clear();
         getElement(driver, locator).sendKeys(keyTosend);
     }
 
     public void sendkeyToElement(WebDriver driver, String locator, CharSequence keyTosend, String...dynamicValues){
+        getElement(driver, castRestParameter(locator, dynamicValues)).clear();
         getElement(driver, castRestParameter(locator, dynamicValues)).sendKeys(keyTosend);
     }
     public void selectItemInDropdown(WebDriver driver, String locator, String valueItem){
         new Select(getElement(driver, locator))
+                .selectByVisibleText(valueItem);
+    }
+
+    public void selectItemInDropdown(WebDriver driver, String locator, String valueItem, String...value){
+        new Select(getElement(driver, castRestParameter(locator, value)))
                 .selectByVisibleText(valueItem);
     }
     public String getSelectedItemInDropdow(WebDriver driver, String locator){
@@ -129,6 +136,9 @@ public class BasePage {
     }
     public List<WebElement> getListElement(WebDriver driver, String locator){
        return driver.findElements(getByLocator(locator));
+    }
+    public List<WebElement> getListElement(WebDriver driver, String locator, String...value){
+        return driver.findElements(getByLocator(castRestParameter(locator, value)));
     }
     public void selectItemInSelectableDropdown(WebDriver driver, String parentLocator, String childLocator, String textItem){
         clickToElement(driver, parentLocator);
@@ -165,6 +175,10 @@ public class BasePage {
     }
     public int getListElementNumber(WebDriver driver, String locator){
         return getListElement(driver, locator).size();
+    }
+
+    public int getListElementNumber(WebDriver driver, String locator, String...value){
+        return getListElement(driver, castRestParameter(locator, value)).size();
     }
     public void checkToCheckbox(WebDriver driver, String locator){
         if(!isElementSelected(driver, locator)){
