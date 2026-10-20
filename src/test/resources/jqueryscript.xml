@@ -3,11 +3,11 @@
 <suite name="Open Cart - UI Automation Test" verbose="1" >
 <!--    <parameter name="adminUrl" value="http://localhost:88/opencart/upload/admin/"></parameter>-->
 <!--    <parameter name="userUrl" value="http://localhost:88/opencart/upload/"></parameter>-->
-    <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"></parameter>
+    <parameter name="url" value="https://gofile.io/d/ad6d920d-fe8c-412c-a49b-88e5c512cf8d"></parameter>
     <test name="Run on Chrome browser" >
         <parameter name="browser" value="Chrome"></parameter>
         <classes>
-            <class name="ui.jqueryscript.Level_12_Data_Table" />
+            <class name="ui.jqueryscript.Level_13_File_Upload" />
         </classes>
     </test>
 

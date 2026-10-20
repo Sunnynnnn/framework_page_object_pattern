@@ -92,4 +92,22 @@ public class HomePageObject extends BasePage {
         waitElementClickable(driver, HomePageUI.DYNAMIC_ACTION_BUTTON, rowIndex, action);
         clickToElement(driver, HomePageUI.DYNAMIC_ACTION_BUTTON, rowIndex, action);
     }
+
+    public boolean isFileLoadedSuccess(String...fileName) {
+        waitElementVisible(driver, HomePageUI.IS_FILE_LOADED, fileName);
+        return isElementDisplayed(driver, HomePageUI.IS_FILE_LOADED, fileName);
+    }
+
+    public void clickActionUpload(String...action) {
+        List<WebElement> startButtons = getListElement(driver, HomePageUI.DYNAMIC_UPLOAD_BUTTON, action);
+        for(WebElement startButton : startButtons){
+            waitElementClickable(driver, HomePageUI.DYNAMIC_UPLOAD_BUTTON, action);
+            clickToElement(driver, HomePageUI.DYNAMIC_UPLOAD_BUTTON, action);
+        }
+    }
+
+    public boolean isFileUploadedSuccess(String fileName) {
+        waitElementVisible(driver, HomePageUI.IS_UPLOADED_FILE, fileName);
+        return isElementDisplayed(driver, HomePageUI.IS_UPLOADED_FILE, fileName);
+    }
 }

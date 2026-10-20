@@ -12,4 +12,5 @@ public class BasePageUI {
     public static final String MY_ACCOUNT_LINK = "//span[text()='My Account']";
     public static final String ADMIN_LOGOUT_BUTTON = "//span[text()='Logout']";
     public static String MY_ACCOUNT_LINK_FOOTER = "//h5[text()='My Account']/following-sibling::ul//a[text()='My Account']";
+    public static String UPLOAD_FILE_TYPE = "Css=input[type='file']";
 }

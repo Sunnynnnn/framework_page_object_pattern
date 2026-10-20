@@ -5,6 +5,7 @@ import PageObject.openCart.admin.AdminLoginPO;
 import PageObject.openCart.user.UserHomePO;
 import PageObject.orangeHRM.editNavigation.*;
 import PageUIs.BasePageUI;
+import PageUIs.jqueryscript.HomePageUI;
 import PageUIs.openCart.user.UserRegisterUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -428,6 +429,14 @@ public class BasePage {
     public String castRestParameter(String locator, String...values){
         locator = String.format(locator, (Object[]) values);
         return locator;
+    }
+    public void uploadMultipleFiles(WebDriver driver, String...fileNames){
+        String filePath = GlobalConstants.UPLOAD_PATH;
+        String fullFile = "";
+        for(String fileName : fileNames){
+            fullFile = fullFile + filePath + fileName + "\n";
+        }
+        getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFile.trim());
     }
 }
 

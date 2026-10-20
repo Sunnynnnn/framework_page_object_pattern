@@ -4,6 +4,7 @@ public class GlobalConstants {
         // System Infor
         public static final String PROJECT_PATH = System.getProperty("user.dir");
         public static final String OS_NAME = System.getProperty("os.name");
+        public static final String FILE_SEPARATOR = System.getProperty("file.separator");
 
         // App Infor User
         public static final String DEV_USER_URL = "http://dev.techpanda.org/";
@@ -23,8 +24,8 @@ public class GlobalConstants {
         public static final long LONG_TIMEOUT = 30;
 
         // Download/ Upload file
-        public static final String UPLOAD_PATH = PROJECT_PATH + "/uploadFiles/";
-        public static final String DOWNLOAD_PATH = PROJECT_PATH + "/downloadFiles/";
+        public static final String UPLOAD_PATH = PROJECT_PATH + FILE_SEPARATOR + "uploadFiles" + FILE_SEPARATOR;
+        public static final String DOWNLOAD_PATH = PROJECT_PATH + FILE_SEPARATOR + "downloadFiles" + FILE_SEPARATOR;
 
         // Retry Case Failed
         public static final int RETRY_NUMBER = 3;
