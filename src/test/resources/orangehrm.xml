@@ -5,7 +5,7 @@
     <test name="Run on Chrome browser" >
         <parameter name="browser" value="Chrome"></parameter>
         <classes>
-            <class name="ui.oranghrm.user.Login_08_Page_Navigator" />
+            <class name="ui.oranghrm.user.Login_12_Assert_Verify" />
         </classes>
     </test>
 
