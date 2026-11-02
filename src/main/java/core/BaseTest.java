@@ -1,11 +1,15 @@
 package core;
 
+import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import reportConfig.ExtentManager;
 
 import java.time.Duration;
 import java.util.Random;
@@ -77,5 +81,14 @@ public class BaseTest {
             Reporter.getCurrentTestResult().setThrowable(e);
         }
         return pass;
+    }
+
+    protected void takeScreenshot(){
+        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+        ExtentManager.getTest().log(LogStatus.INFO, "Test Failed", ExtentManager.getTest().addBase64ScreenShot(base64Screenshot));
+    }
+
+    public WebDriver getDriver() {
+        return this.driver;
     }
 }
